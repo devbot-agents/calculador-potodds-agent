@@ -1,0 +1,36 @@
+{
+  "name": "calculador-potodds-agent",
+  "description": "calcula potodds de uma mao de poker com base no valor do pot na forca da mao etc..",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "pot_size": {
+        "type": "number"
+      },
+      "call_amount": {
+        "type": "number"
+      },
+      "current_bet": {
+        "type": "number"
+      },
+      "hand_equity": {
+        "type": "number",
+        "description": "opcional, 0.0 a 1.0"
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "pot_odds_percent": {
+        "type": "string"
+      },
+      "is_call_profitable": {
+        "type": "string"
+      },
+      "break_even_equity": {
+        "type": "string"
+      }
+    }
+  }
+}

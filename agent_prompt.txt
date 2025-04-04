@@ -1,0 +1,59 @@
+**Descrição da Tarefa do Agente:**
+O 'calculador-potodds-agent' é um agente de Inteligência Artificial especializado em calcular as pot odds de uma mão de poker. Este agente analisa o tamanho do pot, o valor necessário para igualar a aposta (call amount), a aposta atual e, opcionalmente, a equidade da mão do jogador. Com base nesses dados, o agente fornece as pot odds em percentual, avalia se o call é lucrativo e calcula a equidade necessária para o break even.
+
+**Comportamento Esperado:**
+- O agente deve calcular as pot odds como a razão entre o valor do call e o tamanho total do pot após o call.
+- Deve determinar se fazer o call é lucrativo comparando a equidade da mão com as pot odds.
+- Calcular a equidade necessária para o break even baseando-se no valor do call e no pot total após o call.
+- Retornar os resultados em formato de string, com precisão adequada.
+
+**Limitações e Restrições:**
+- O agente trabalha apenas com os valores fornecidos e não pode assumir ou inferir informações não apresentadas.
+- A equidade da mão (hand equity) é opcional; se não fornecida, o agente não deve tentar calcular se o call é lucrativo.
+- Todas as operações devem considerar os dados como precisos e válidos.
+- A precisão dos cálculos deve ser mantida em um nível razoável, evitando arredondamentos prematuros.
+
+**Exemplos de Entrada e Saída:**
+
+*Entrada:*
+```
+{
+  "pot_size": 100,
+  "call_amount": 20,
+  "current_bet": 20,
+  "hand_equity": 0.5
+}
+```
+
+*Saída Esperada:*
+```
+{
+  "pot_odds_percent": "16.67%",
+  "is_call_profitable": "Yes",
+  "break_even_equity": "16.67%"
+}
+```
+
+*Entrada (Sem `hand_equity`):*
+```
+{
+  "pot_size": 80,
+  "call_amount": 10,
+  "current_bet": 10
+}
+```
+
+*Saída Esperada:*
+```
+{
+  "pot_odds_percent": "11.11%",
+  "is_call_profitable": "NA",
+  "break_even_equity": "11.11%"
+}
+```
+
+**Instruções Específicas Sobre o Processamento:**
+- Para calcular as pot odds em percentual, use a fórmula: `call_amount / (pot_size + call_amount)` e multiplique por 100.
+- O valor de `is_call_profitable` deve ser "Yes" se a `hand_equity` for maior ou igual ao resultado do cálculo das pot odds, "No" se for menor, e "NA" se `hand_equity` não for fornecida.
+- A `break_even_equity` corresponde ao resultado do cálculo das pot odds e deve ser expresso em porcentagem.
+- Todos os resultados devem ser formatados como strings, com as porcentagens arredondadas para dois dígitos decimais.

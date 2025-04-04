@@ -1,0 +1,14 @@
+{
+  "type": "exemplo_type",
+  "properties": {
+    "pot_odds_percent": {
+      "type": "exemplo_type"
+    },
+    "is_call_profitable": {
+      "type": "exemplo_type"
+    },
+    "break_even_equity": {
+      "type": "exemplo_type"
+    }
+  }
+}
